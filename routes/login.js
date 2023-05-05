@@ -15,7 +15,7 @@ router.post("/login", function (req, res) {
         User.findOne(
           { $or: [{ username: user.username }, { email: user.username }] },
           (err, user) => {
-            res.status(201).json({ message: "user login successfully", user });
+            res.status(201).redirect("/");
           }
         );
       });

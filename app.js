@@ -53,14 +53,6 @@ app.use("/", recomandationRoute);
 app.use("/", competitionRoute);
 app.use("/", rankingRoute);
 
-app.get("/", (req, res) => {
-  if (req.isAuthenticated()) {
-    res.render("index");
-  } else {
-    res.redirect("/login");
-  }
-});
-
 app.get("/write", (req, res) => {
   res.render("write");
 });
@@ -69,71 +61,12 @@ app.post("/write", (req, res) => {
   console.log(req.body);
 });
 
-// app.get("/dashboard/:userId", (req, res) => {
-//   let id = req.params.userId;
-//   if (!mongoose.Types.ObjectId.isValid(id)) {
-//     return res.status(400).send("Invalid user ID.");
-//   }
-//   User.findOne({ _id: id }, function (err, user) {
-//     if (err) {
-//       console.log(err);
-//       return res
-//         .status(500)
-//         .send("An error occurred while retrieving the user.");
-//     }
-//     if (!user) {
-//       return res.status(404).send("User not found.");
-//     }
-//     res.render("dashboard", { username: user.username });
-//   });
-// });
-
 app.get("/register", function (req, res) {
   res.render("register");
 });
 
 app.get("/login", (req, res) => {
   res.render("login");
-});
-
-app.post("/login", function (req, res) {
-  const user = new User({
-    username: req.body.username,
-    password: req.body.password,
-  });
-
-  req.login(user, function (err) {
-    if (!err) {
-      passport.authenticate("local")(req, res, function () {
-        // Retrieve the user object from the database
-        User.findOne({ username: req.body.username }, function (err, user) {
-          if (err) {
-            console.log(err);
-          } else {
-            // Redirect to the dashboard with the actual user ID
-            res.redirect("/");
-          }
-        });
-      });
-    }
-  });
-});
-
-app.post("/signup", function (req, res) {
-  User.register(
-    { username: req.body.username, email: req.body.email },
-    req.body.password,
-    function (err, user) {
-      if (err) {
-        console.log(err);
-        res.redirect("/index");
-      } else {
-        passport.authenticate("local")(req, res, function () {
-          res.redirect("/dashboard/" + user._id);
-        });
-      }
-    }
-  );
 });
 
 app.listen(process.env.PORT, function () {

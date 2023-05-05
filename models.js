@@ -23,6 +23,7 @@ const blogSchema = new mongoose.Schema({
   body: Object,
   tags: Array,
   userId: String,
+  userName: String,
   viewCount: { type: Number, default: 0 },
   status: String,
   date: String,

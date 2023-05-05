@@ -3,9 +3,15 @@ const router = express.Router();
 const { User, Blog, Comment } = require("../models");
 
 router.get("/", (req, res) => {
-  Blog.find().exec({}, (err, posts) => {
-    res.status(201).json(posts.reverse());
-  });
+  if (req.isAuthenticated()) {
+    var user = req.user;
+
+    Blog.find().exec({}, (err, blogs) => {
+      res.render("index", { user, blogs });
+    });
+  } else {
+    res.redirect("/login");
+  }
 });
 
 router.get("/random", (req, res) => {
@@ -24,7 +30,9 @@ router.get("/dashboard/:userId", (req, res) => {
   User.find({ _id: userId }, (err, user) => {
     Blog.find({ userId }, (err, blogs) => {
       Comment.find({ userId }, (err, comments) => {
-        res.status(201).json({ message: "dashboard", user, blogs, comments });
+        res
+          .status(201)
+          .render("dashboard", { message: "dashboard", user, blogs, comments });
       });
     });
   });
