@@ -54,19 +54,23 @@ app.use("/", competitionRoute);
 app.use("/", rankingRoute);
 
 app.get("/write", (req, res) => {
-  res.render("write");
+  if (req.isAuthenticated()) {
+    res.render("write", { user: req.user });
+  } else {
+    res.redirect("/login");
+  }
 });
 
 app.post("/write", (req, res) => {
   console.log(req.body);
 });
 
-app.get("/register", function (req, res) {
-  res.render("register");
+app.get("/signup", function (req, res) {
+  res.render("register2");
 });
 
 app.get("/login", (req, res) => {
-  res.render("login");
+  res.render("login2");
 });
 
 app.listen(process.env.PORT, function () {

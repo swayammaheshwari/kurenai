@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const { User, Referral, transporter, UserInfo } = require("../models.js");
-const passport = require("passport");
 const template = require("./template");
 
 router.post("/signup", async (req, res) => {
@@ -37,11 +36,14 @@ router.post("/signup", async (req, res) => {
       html: template,
     };
 
-    transporter.sendMail(mailData, (error, info) => {
-      if (error) throw error;
-      res.status(201).redirect("/");
+    // await transporter.sendMail(mailData);
+
+    req.login(registeredUser, function (err) {
+      if (err) {
+        return res.status(500).json({ error: err.message });
+      }
+      return res.status(201).redirect("/");
     });
-    // res.status(201).json({ message: "User signed up successfully", user: registeredUser });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
