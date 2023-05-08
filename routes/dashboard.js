@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
     var user = req.user;
 
     Blog.find().exec({}, (err, blogs) => {
-      res.render("index2", { user, blogs });
+      res.render("index", { user, blogs });
     });
   } else {
     res.redirect("/login");

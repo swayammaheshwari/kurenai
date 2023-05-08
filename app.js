@@ -66,11 +66,11 @@ app.post("/write", (req, res) => {
 });
 
 app.get("/signup", function (req, res) {
-  res.render("register2");
+  res.render("register");
 });
 
 app.get("/login", (req, res) => {
-  res.render("login2");
+  res.render("login");
 });
 
 app.listen(process.env.PORT, function () {
