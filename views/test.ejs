@@ -226,99 +226,69 @@
         <!-- ====== second section ===== -->
         <section class="second_blog_section">
             <div class="container">
-                <% for(let i=0; i<blogs.length; i+=2) { %>
-                    <div class="home_second_sec_container r-flex jut-sb">
+                <div class="home_second_sec_container r-flex jut-sb">
 
-                        <!-- ===== left side ==== -->
-                        <div class="home_second_sec_left_box">
+                    <!-- ===== left side ==== -->
+                    <div class="home_second_sec_left_box">
 
-                            <div class="home_second_sec_left_blog_box">
-                                <div class="second_sec_left_img_box r-flex">
-                                    <a href="#" class="r-flex">
-                                        <img src="<%= blogs[i].image %>" alt="<%= blogs[i].title %>">
-                                    </a>
-                                </div>
+                        <div class="home_second_sec_left_blog_box">
+                            <div class="second_sec_left_img_box r-flex">
+                                <a href="#" class="r-flex">
+                                    <img src="" alt="">
+                                </a>
+                            </div>
 
-                                <div class="second_sec_left_cont_box">
-                                    <a href="#" class="second_blog_sec_heading">
-                                        <%= blogs[i].title %>
-                                    </a>
-                                    <p class="second_sec_left_cont">
-                                        <%= blogs[i].body.substring(0,100) + "..." %>
-                                    </p>
+                            <div class="second_sec_left_cont_box">
+                                <a href="#" class="second_blog_sec_heading">The golden rules you need to know for a
+                                    positive life</a>
+                                <p class="second_sec_left_cont">Aenean interdum arcu blandit, vehicula magna non,
+                                    placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue
+                                    elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
 
-                                    <div class="second_sec_type_write_date">
-                                        <a href="#" class="second_sec_blog_box_type">
-                                            <%= blogs[i].category %>
-                                        </a>
-                                        <span>/</span>
-                                        <a href="#">
-                                            <%= blogs[i].date %>
-                                        </a>
-                                        <span>/</span>
-                                        <a href="#">
-                                            <%= blogs[i].author %>
-                                        </a>
-                                        <span>/</span>
-                                        <span class="like_count">
-                                            <%= blogs[i].likes.length %> Likes
-                                        </span>
-                                    </div>
+                                <div class="second_sec_type_write_date">
+                                    <a href="#" class="second_sec_blog_box_type">LIFESTYLE</a>
+                                    <span>/</span>
+                                    <a href="#">24 July, 2018</a>
+                                    <span>/</span>
+                                    <a href="#">BY AMANDA</a>
                                 </div>
                             </div>
                         </div>
-                        <!-- ===== left side close==== -->
+                    </div>
+                    <!-- ===== left side close==== -->
 
-                        <% if(i+1 < blogs.length) { %>
-                            <!-- ===== right side ==== -->
-                            <div class="home_second_sec_left_box">
+                    <!-- ===== right side ==== -->
+                    <div class="home_second_sec_left_box">
 
-                                <div class="home_second_sec_left_blog_box">
-                                    <div class="second_sec_left_img_box r-flex">
-                                        <a href="#" class="r-flex">
-                                            <img src="<%= blogs[i+1].image %>" alt="<%= blogs[i+1].title %>">
-                                        </a>
-                                    </div>
+                        <div class="home_second_sec_left_blog_box">
+                            <div class="second_sec_left_img_box r-flex">
+                                <a href="#" class="r-flex">
+                                    <img src="" alt="">
+                                </a>
+                            </div>
 
-                                    <div class="second_sec_left_cont_box">
-                                        <a href="#" class="second_blog_sec_heading">
-                                            <%= blogs[i+1].title %>
-                                        </a>
-                                        <p class="second_sec_left_cont">
-                                            <%= blogs[i+1].body.substring(0,100) + "..." %>
-                                        </p>
+                            <div class="second_sec_left_cont_box">
+                                <a href="#" class="second_blog_sec_heading">The golden rules you need to know for a
+                                    positive life</a>
+                                <p class="second_sec_left_cont">Aenean interdum arcu blandit, vehicula magna non,
+                                    placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue
+                                    elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
 
-                                        <div class="second_sec_type_write_date">
-                                            <a href="#" class="second_sec_blog_box_type">
-                                                <%= blogs[i+1].category %>
-                                            </a>
-                                            <span>/</span>
-                                            <a href="#">
-                                                <%= blogs[i+1].date %>
-                                            </a>
-                                            <span>/</span>
-                                            <a href="#">
-                                                <%= blogs[i+1].author %>
-                                            </a>
-                                            <span>/</span>
-                                            <span class="like_count">
-                                                <%= blogs[i+1].likes.length %> Likes
-                                            </span>
-                                        </div>
-                                    </div>
+                                <div class="second_sec_type_write_date">
+                                    <a href="#" class="second_sec_blog_box_type">LIFESTYLE</a>
+                                    <span>/</span>
+                                    <a href="#">24 July, 2018</a>
+                                    <span>/</span>
+                                    <a href="#">BY AMANDA</a>
                                 </div>
                             </div>
-                            <!-- ===== right side close ==== -->
-                            <% } %>
-
+                        </div>
                     </div>
-                    <% if(i+1 < blogs.length) { %>
-                        <div class="separator"></div>
-                        <% } %>
-                            <% } %>
+                    <!-- ===== right side close ==== -->
+
+                </div>
             </div>
         </section>
-
         <!-- ====== second section close ===== -->
 
 
