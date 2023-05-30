@@ -77,7 +77,7 @@
                             <li class="nav_manu_points">
                                 <a class="nav_manu_link" href="#">
                                     <span class=" nav_drop_menu r-flex ali-c">
-                                        <span>Categories </span>
+                                        <span>Categories</span>
                                         <svg width="15" height="9" viewBox="0 0 10 6" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -137,15 +137,14 @@
                             <li class="nav_manu_points"><a class="nav_manu_link" href="#">Travle</a></li>
 
                             <li class="nav_manu_points">
-                                <a class="nav_manu_link write_nav_btn r-flex ali-c" href="#">
-                                    <svg width="16" height="16" viewBox="0 0 22 22" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M20.847 0.543159L21.4504 1.14002C22.2818 1.9635 22.156 3.42329 21.1671 4.40053L8.72436 16.7091L4.69301 18.1679C4.18679 18.352 3.69387 18.1133 3.59365 17.6368C3.55978 17.464 3.57572 17.2852 3.63967 17.1209L5.14299 13.0986L17.551 0.823382C18.5399 -0.15386 20.0156 -0.280315 20.847 0.543159ZM8.18132 1.76724C8.31562 1.76724 8.44861 1.79341 8.57268 1.84425C8.69676 1.89509 8.80949 1.9696 8.90446 2.06354C8.99942 2.15748 9.07475 2.269 9.12614 2.39174C9.17754 2.51448 9.20399 2.64603 9.20399 2.77888C9.20399 2.91173 9.17754 3.04328 9.12614 3.16602C9.07475 3.28875 8.99942 3.40028 8.90446 3.49421C8.80949 3.58815 8.69676 3.66267 8.57268 3.71351C8.44861 3.76435 8.31562 3.79052 8.18132 3.79052H4.09066C3.54821 3.79052 3.02797 4.00368 2.64439 4.38312C2.26082 4.76256 2.04533 5.27719 2.04533 5.81379V17.9534C2.04533 18.4901 2.26082 19.0047 2.64439 19.3841C3.02797 19.7636 3.54821 19.9767 4.09066 19.9767H16.3626C16.9051 19.9767 17.4253 19.7636 17.8089 19.3841C18.1925 19.0047 18.408 18.4901 18.408 17.9534V13.9069C18.408 13.6386 18.5157 13.3813 18.7075 13.1916C18.8993 13.0018 19.1594 12.8953 19.4306 12.8953C19.7019 12.8953 19.962 13.0018 20.1538 13.1916C20.3456 13.3813 20.4533 13.6386 20.4533 13.9069V17.9534C20.4533 19.0267 20.0223 20.0559 19.2552 20.8148C18.488 21.5737 17.4476 22 16.3626 22H4.09066C3.00575 22 1.96528 21.5737 1.19813 20.8148C0.430979 20.0559 0 19.0267 0 17.9534V5.81379C0 4.74058 0.430979 3.71132 1.19813 2.95245C1.96528 2.19357 3.00575 1.76724 4.09066 1.76724H8.18132Z"
-                                            fill="#ffffff" />
-                                    </svg>
-                                    <span>Write Blog</span>
-                                </a>
+                                <% if (dashboard==true) { %>
+                                    <a class="nav_manu_link write_nav_btn r-flex ali-c" href="/dashboard">
+                                        <span>Dashboard</span>
+                                        <% }else{%>
+                                            <a class="nav_manu_link write_nav_btn r-flex ali-c" href="/login">
+                                                <span>Sign up / Sign In</span>
+                                                <% }%>
+                                            </a>
                             </li>
                             <div class="close_nav_berger" onclick="burgerFuncation()">
                                 <svg width="19" height="20" viewBox="0 0 19 20" fill="none"
@@ -218,108 +217,130 @@
     <!-- ======= main ===== -->
     <main class="home_main">
         <!-- ====== hero section ===== -->
-
-        <!-- ====== hero section close ===== -->
-
-
-
-        <!-- ====== second section ===== -->
-        <section class="second_blog_section">
+        <section class="home_hero_section">
             <div class="container">
-                <% for(let i=0; i<blogs.length; i+=2) { %>
-                    <div class="home_second_sec_container r-flex jut-sb">
 
-                        <!-- ===== left side ==== -->
-                        <div class="home_second_sec_left_box">
+                <!-- ==== hero search box ===== -->
+                <div class="hero_search_box">
+                    <form action="#" class="hero_search r-flex ali-c">
+                        <input type="search" name="search" class="search_input" id="hero_search"
+                            placeholder="Search Blogs ">
+                        <button type="submit" class="hero_search_btn">
+                            <svg width="24" height="24" viewBox="0 0 14 14" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.5 9.5L12.5 12.5" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M5.75 10.5C8.37335 10.5 10.5 8.37335 10.5 5.75C10.5 3.12665 8.37335 1 5.75 1C3.12665 1 1 3.12665 1 5.75C1 8.37335 3.12665 10.5 5.75 10.5Z"
+                                    stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+                <!-- ==== hero search box close===== -->
 
-                            <div class="home_second_sec_left_blog_box">
-                                <div class="second_sec_left_img_box r-flex">
-                                    <a href="#" class="r-flex">
-                                        <img src="<%= blogs[i].image %>" alt="<%= blogs[i].title %>">
-                                    </a>
+
+                <!-- ==== blog show box ===== -->
+                <div class="hero_blog_show_box r-flex ali-c jut-sb">
+
+                    <div class="left_side_blog_box">
+                        <img src="<%=top5ByLikes[0].titleImage%>" alt="">
+                        <div class="left_blog_box_content c-flex">
+                            <div class="blog_box_content_type">
+                                <%=top5ByLikes[0].category%>
+                            </div>
+                            <a href="blog?blogId=<%=top5ByLikes[0]._id%>" class="blog_show_heading">
+                                <%=top5ByLikes[0].title%>
+                            </a>
+                            <div class="date_and_writer">
+                                <a href="blog?blogId=<%=top5ByLikes[0]._id%>" 1 <%=top5ByLikes[0].date%>
+                                </a>
+                                <span class="date_writer_divider">/</span>
+                                <a href="user?<%=top5ByLikes[0].userId%>">
+                                    <%=top5ByLikes[0].auther%>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mid_side_blog_box c-flex jut-sb">
+                        <div class="mid_top_blog_box">
+                            <img src="<%=top5ByLikes[1].titleImage%>" alt="">
+                            <div class="left_blog_box_content c-flex">
+                                <div class="blog_box_content_type">
+                                    <%=top5ByLikes[1].category%>
                                 </div>
-
-                                <div class="second_sec_left_cont_box">
-                                    <a href="#" class="second_blog_sec_heading">
-                                        <%= blogs[i].title %>
+                                <a href="blog?blogId=<%=top5ByLikes[1]._id%>" class="mid_hero_blog_heading">
+                                    <%=top5ByLikes[1].title%>
+                                </a>
+                                <div class="date_and_writer">
+                                    <a href="blog?blogId=<%=top5ByLikes[1]._id%>">
+                                        <%=top5ByLikes[1].date%>
                                     </a>
-                                    <p class="second_sec_left_cont">
-                                        <%= blogs[i].body%>
-                                    </p>
-
-                                    <div class="second_sec_type_write_date">
-                                        <a href="#" class="second_sec_blog_box_type">
-                                            <%= blogs[i].category %>
-                                        </a>
-                                        <span>/</span>
-                                        <a href="#">
-                                            <%= blogs[i].date %>
-                                        </a>
-                                        <span>/</span>
-                                        <a href="#">
-                                            <%= blogs[i].author %>
-                                        </a>
-                                        <span>/</span>
-                                        <span class="like_count">
-                                            <%= blogs[i].likes.length %> Likes
-                                        </span>
-                                    </div>
+                                    <span class="date_writer_divider">/</span>
+                                    <a href="user?<%=top5ByLikes[1].userId%>">
+                                        <%=top5ByLikes[1].auther%>
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                        <!-- ===== left side close==== -->
-
-                        <% if(i+1 < blogs.length) { %>
-                            <!-- ===== right side ==== -->
-                            <div class="home_second_sec_left_box">
-
-                                <div class="home_second_sec_left_blog_box">
-                                    <div class="second_sec_left_img_box r-flex">
-                                        <a href="#" class="r-flex">
-                                            <img src="<%= blogs[i+1].image %>" alt="<%= blogs[i+1].title %>">
-                                        </a>
+                        <div class="mid_bot_blog_box r-flex ali-c jut-sb">
+                            <div class="left_mid_bot_blog_box">
+                                <img src="<%=top5ByLikes[2].titleImage%>" alt="">
+                                <div class="left_blog_box_content c-flex">
+                                    <div class="blog_box_content_type">
+                                        <%=top5ByLikes[2].category%>
                                     </div>
+                                    <a href="blog?blogId=<%=top5ByLikes[2]._id%>" class="left_bot_hero_blog_heading">
+                                        <%=top5ByLikes[2].title%>
+                                    </a>
 
-                                    <div class="second_sec_left_cont_box">
-                                        <a href="#" class="second_blog_sec_heading">
-                                            <%= blogs[i+1].title %>
-                                        </a>
-                                        <p class="second_sec_left_cont">
-                                            <%= blogs[i+1].body%>
-                                        </p>
-
-                                        <div class="second_sec_type_write_date">
-                                            <a href="#" class="second_sec_blog_box_type">
-                                                <%= blogs[i+1].category %>
-                                            </a>
-                                            <span>/</span>
-                                            <a href="#">
-                                                <%= blogs[i+1].date %>
-                                            </a>
-                                            <span>/</span>
-                                            <a href="#">
-                                                <%= blogs[i+1].author %>
-                                            </a>
-                                            <span>/</span>
-                                            <span class="like_count">
-                                                <%= blogs[i+1].likes.length %> Likes
-                                            </span>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
-                            <!-- ===== right side close ==== -->
-                            <% } %>
-
+                            <div class="right_mid_bot_blog_box">
+                                <img src="<%=top5ByLikes[3].titleImage%>" alt="">
+                                <div class="left_blog_box_content c-flex">
+                                    <div class="blog_box_content_type">
+                                        <%=top5ByLikes[3].category%>
+                                    </div>
+                                    <a href="blog?blogId=<%=top5ByLikes[3]._id%>" class="right_bot_hero_blog_heading">
+                                        <%=top5ByLikes[3].title%>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <% if(i+1 < blogs.length) { %>
-                        <div class="separator"></div>
-                        <% } %>
-                            <% } %>
+
+                    <div class="left_side_blog_box">
+                        <img src="<%=top5ByLikes[4].titleImage%>" alt="">
+                        <div class="left_blog_box_content c-flex">
+                            <div class="blog_box_content_type">
+                                <%=top5ByLikes[4].category%>
+                            </div>
+                            <a href="blog?blogId=<%=top5ByLikes[4]._id%>" class="blog_show_heading">
+                                <%=top5ByLikes[4].title%>
+                            </a>
+                            <div class="date_and_writer">
+                                <a href="blog?blogId=<%=top5ByLikes[4]._id%>">
+                                    <%=top5ByLikes[4].date%>
+                                </a>
+                                <span class="date_writer_divider">/</span>
+                                <a href="user?<%=top5ByLikes[4].userId%>">
+                                    <%=top5ByLikes[4].auther%>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ==== blog show box close ===== -->
+
+
+
             </div>
         </section>
-
-        <!-- ====== second section close ===== -->
+        <!-- ====== hero section close ===== -->
+        <div class="containers"></div>
 
 
         <!-- ====== three section close ===== -->
@@ -329,255 +350,52 @@
                     <div class="home_popular_blog_box r-flex jut-sb">
 
                         <!-- ===== left side ==== -->
+
                         <div class="popular_left_container">
                             <h2 class="home_populer_main_heading">Most Popular Blogs</h2>
                             <span class="heading_under_lines"></span>
                             <div class="home_popular_bolg_box">
 
-                                <div class="popular_left_side_box r-flex ">
-                                    <div class="popular_left_box_img r-flex">
-                                        <a href="#" class="r-flex">
-                                            <img src="https://images.unsplash.com/photo-1649343800236-46d2889a0c4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                    <div class="popular_left_cont_box">
-                                        <a href="#" class="popular_left_blog_heading">5 Beautiful buildings you need to
-                                            visit without dying</a>
-                                        <p class="popular_left_blog_cont">Aenean interdum arcu blandit, vehicula magna
-                                            non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In
-                                            at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.
-                                        </p>
-                                        <div class="popular_left_write_date_read r-flex ali-c jut-sb">
-                                            <div class="popular_left_write_date">
-                                                <a href="#">23 Sep. 2022</a>
-                                                <span>/</span>
-                                                <a href="#">BY KARAN</a>
-                                            </div>
-                                            <a href="#" class="popular_left_blog_get_read r-flex ali-c">
-                                                <span>Read more</span>
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M13 17L18 12L13 7" stroke="#382E53" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                    <path d="M6 17L11 12L6 7" stroke="#382E53" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
+                                <% top6ByViews.forEach(blog=> { %>
+                                    <div class="popular_left_side_box r-flex ">
+                                        <div class="popular_left_box_img r-flex">
+                                            <a href="blog?blogId=<%=blog._id%>" class="r-flex">
+                                                <img src="<%=blog.titleImage%>" alt="">
                                             </a>
                                         </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="popular_left_side_box r-flex ">
-                                    <div class="popular_left_box_img r-flex">
-                                        <a href="#" class="r-flex">
-                                            <img src="https://images.unsplash.com/photo-1649343800236-46d2889a0c4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                    <div class="popular_left_cont_box">
-                                        <a href="#" class="popular_left_blog_heading">5 Beautiful buildings you need to
-                                            visit without dying</a>
-                                        <p class="popular_left_blog_cont">Aenean interdum arcu blandit, vehicula magna
-                                            non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In
-                                            at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.
-                                        </p>
-                                        <div class="popular_left_write_date_read r-flex ali-c jut-sb">
-                                            <div class="popular_left_write_date">
-                                                <a href="#">23 Sep. 2022</a>
-                                                <span>/</span>
-                                                <a href="#">BY KARAN</a>
-                                            </div>
-                                            <a href="#" class="popular_left_blog_get_read r-flex ali-c">
-                                                <span>Read more</span>
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M13 17L18 12L13 7" stroke="#382E53" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                    <path d="M6 17L11 12L6 7" stroke="#382E53" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
+                                        <div class="popular_left_cont_box">
+                                            <a href="blog?blogId=<%=blog._id%>" class="popular_left_blog_heading">
+                                                <%=blog.title%>
                                             </a>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="popular_left_side_box r-flex ">
-                                    <div class="popular_left_box_img r-flex">
-                                        <a href="#" class="r-flex">
-                                            <img src="https://images.unsplash.com/photo-1649343800236-46d2889a0c4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                    <div class="popular_left_cont_box">
-                                        <a href="#" class="popular_left_blog_heading">5 Beautiful buildings you need to
-                                            visit without dying</a>
-                                        <p class="popular_left_blog_cont">Aenean interdum arcu blandit, vehicula magna
-                                            non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In
-                                            at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.
-                                        </p>
-                                        <div class="popular_left_write_date_read r-flex ali-c jut-sb">
-                                            <div class="popular_left_write_date">
-                                                <a href="#">23 Sep. 2022</a>
-                                                <span>/</span>
-                                                <a href="#">BY KARAN</a>
+                                            <p class="popular_left_blog_cont">
+                                                <%=blog.body%>
+                                            </p>
+                                            <div class="popular_left_write_date_read r-flex ali-c jut-sb">
+                                                <div class="popular_left_write_date">
+                                                    <a href="blog?blogId=<%=blog._id%>">
+                                                        <%=blog.date%>
+                                                    </a>
+                                                    <span>/</span>
+                                                    <a href="blog?blogId=<%=blog._id%>">
+                                                        <%=blog.auther%>
+                                                    </a>
+                                                </div>
+                                                <a href="blog?blogId=<%=blog._id%>"
+                                                    class="popular_left_blog_get_read r-flex ali-c">
+                                                    <span>Read more</span>
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M13 17L18 12L13 7" stroke="#382E53" stroke-width="2"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                        <path d="M6 17L11 12L6 7" stroke="#382E53" stroke-width="2"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                </a>
                                             </div>
-                                            <a href="#" class="popular_left_blog_get_read r-flex ali-c">
-                                                <span>Read more</span>
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M13 17L18 12L13 7" stroke="#382E53" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                    <path d="M6 17L11 12L6 7" stroke="#382E53" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
-                                            </a>
                                         </div>
-                                    </div>
 
-                                </div>
-
-                                <div class="popular_left_side_box r-flex ">
-                                    <div class="popular_left_box_img r-flex">
-                                        <a href="#" class="r-flex">
-                                            <img src="https://images.unsplash.com/photo-1649343800236-46d2889a0c4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80"
-                                                alt="">
-                                        </a>
                                     </div>
-                                    <div class="popular_left_cont_box">
-                                        <a href="#" class="popular_left_blog_heading">5 Beautiful buildings you need to
-                                            visit without dying</a>
-                                        <p class="popular_left_blog_cont">Aenean interdum arcu blandit, vehicula magna
-                                            non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In
-                                            at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.
-                                        </p>
-                                        <div class="popular_left_write_date_read r-flex ali-c jut-sb">
-                                            <div class="popular_left_write_date">
-                                                <a href="#">23 Sep. 2022</a>
-                                                <span>/</span>
-                                                <a href="#">BY KARAN</a>
-                                            </div>
-                                            <a href="#" class="popular_left_blog_get_read r-flex ali-c">
-                                                <span>Read more</span>
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M13 17L18 12L13 7" stroke="#382E53" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                    <path d="M6 17L11 12L6 7" stroke="#382E53" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="popular_left_side_box r-flex ">
-                                    <div class="popular_left_box_img r-flex">
-                                        <a href="#" class="r-flex">
-                                            <img src="https://images.unsplash.com/photo-1649343800236-46d2889a0c4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                    <div class="popular_left_cont_box">
-                                        <a href="#" class="popular_left_blog_heading">5 Beautiful buildings you need to
-                                            visit without dying</a>
-                                        <p class="popular_left_blog_cont">Aenean interdum arcu blandit, vehicula magna
-                                            non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In
-                                            at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.
-                                        </p>
-                                        <div class="popular_left_write_date_read r-flex ali-c jut-sb">
-                                            <div class="popular_left_write_date">
-                                                <a href="#">23 Sep. 2022</a>
-                                                <span>/</span>
-                                                <a href="#">BY KARAN</a>
-                                            </div>
-                                            <a href="#" class="popular_left_blog_get_read r-flex ali-c">
-                                                <span>Read more</span>
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M13 17L18 12L13 7" stroke="#382E53" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                    <path d="M6 17L11 12L6 7" stroke="#382E53" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="popular_left_side_box r-flex ">
-                                    <div class="popular_left_box_img r-flex">
-                                        <a href="#" class="r-flex">
-                                            <img src="https://images.unsplash.com/photo-1649343800236-46d2889a0c4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                    <div class="popular_left_cont_box">
-                                        <a href="#" class="popular_left_blog_heading">5 Beautiful buildings you need to
-                                            visit without dying</a>
-                                        <p class="popular_left_blog_cont">Aenean interdum arcu blandit, vehicula magna
-                                            non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In
-                                            at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.
-                                        </p>
-                                        <div class="popular_left_write_date_read r-flex ali-c jut-sb">
-                                            <div class="popular_left_write_date">
-                                                <a href="#">23 Sep. 2022</a>
-                                                <span>/</span>
-                                                <a href="#">BY KARAN</a>
-                                            </div>
-                                            <a href="#" class="popular_left_blog_get_read r-flex ali-c">
-                                                <span>Read more</span>
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M13 17L18 12L13 7" stroke="#382E53" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                    <path d="M6 17L11 12L6 7" stroke="#382E53" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="popular_left_side_box r-flex ">
-                                    <div class="popular_left_box_img r-flex">
-                                        <a href="#" class="r-flex">
-                                            <img src="https://images.unsplash.com/photo-1649343800236-46d2889a0c4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                    <div class="popular_left_cont_box">
-                                        <a href="#" class="popular_left_blog_heading">5 Beautiful buildings you need to
-                                            visit without dying</a>
-                                        <p class="popular_left_blog_cont">Aenean interdum arcu blandit, vehicula magna
-                                            non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In
-                                            at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.
-                                        </p>
-                                        <div class="popular_left_write_date_read r-flex ali-c jut-sb">
-                                            <div class="popular_left_write_date">
-                                                <a href="#">23 Sep. 2022</a>
-                                                <span>/</span>
-                                                <a href="#">BY KARAN</a>
-                                            </div>
-                                            <a href="#" class="popular_left_blog_get_read r-flex ali-c">
-                                                <span>Read more</span>
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M13 17L18 12L13 7" stroke="#382E53" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                    <path d="M6 17L11 12L6 7" stroke="#382E53" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                </div>
+                                    <% }); %>
 
                             </div>
 
@@ -594,116 +412,126 @@
 
                                 <div class="home_popular_right_blog r-flex ali-c jut-sb">
                                     <div class="popular_right_blog_img r-flex">
-                                        <a href="#" class="r-flex">
-                                            <img src="https://images.unsplash.com/photo-1660578150623-2e3790e214a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                                                alt="">
+                                        <a href="<%=top8ByLikes[0].title%>" class="r-flex">
+                                            <img src="<%=top8ByLikes[0].titleImage%>" alt="">
                                         </a>
                                     </div>
                                     <div class="popular_right_blog_cont_box c-flex ">
-                                        <a href="#" class="popular_right_blog_hading">We are guests of ABC Design Studio
-                                            - Vlog</a>
-                                        <a href="#" class="popular_right_blog_date">30 May 2020</a>
+                                        <a href="blog?blogId=<%=top8ByLikes[0]._id%>" class="popular_right_blog_hading">
+                                            <%=top8ByLikes[0].title%>
+                                        </a>
+                                        <a href="#" class="popular_right_blog_date">
+                                            <%=top8ByLikes[0].date%>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="home_popular_right_blog r-flex ali-c jut-sb">
+                                    <div class="popular_right_blog_img r-flex">
+                                        <a href="<%=top8ByLikes[1].title%>" class="r-flex">
+                                            <img src="<%=top8ByLikes[1].titleImage%>" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="popular_right_blog_cont_box c-flex ">
+                                        <a href="blog?blogId=<%=top8ByLikes[1]._id%>" class="popular_right_blog_hading">
+                                            <%=top8ByLikes[1].title%>
+                                        </a>
+                                        <a href="#" class="popular_right_blog_date">
+                                            <%=top8ByLikes[1].date%>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="home_popular_right_blog r-flex ali-c jut-sb">
+                                    <div class="popular_right_blog_img r-flex">
+                                        <a href="<%=top8ByLikes[2].title%>" class="r-flex">
+                                            <img src="<%=top8ByLikes[2].titleImage%>" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="popular_right_blog_cont_box c-flex ">
+                                        <a href="blog?blogId=<%=top8ByLikes[2]._id%>" class="popular_right_blog_hading">
+                                            <%=top8ByLikes[2].title%>
+                                        </a>
+                                        <a href="#" class="popular_right_blog_date">
+                                            <%=top8ByLikes[2].date%>
+                                        </a>
                                     </div>
                                 </div>
 
                                 <div class="home_popular_right_blog r-flex ali-c jut-sb">
                                     <div class="popular_right_blog_img r-flex">
-                                        <a href="#" class="r-flex">
-                                            <img src="https://images.unsplash.com/photo-1660578150623-2e3790e214a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                                                alt="">
+                                        <a href="<%=top8ByLikes[3].title%>" class="r-flex">
+                                            <img src="<%=top8ByLikes[3].titleImage%>" alt="">
                                         </a>
                                     </div>
                                     <div class="popular_right_blog_cont_box c-flex ">
-                                        <a href="#" class="popular_right_blog_hading">We are guests of ABC Design Studio
-                                            - Vlog</a>
-                                        <a href="#" class="popular_right_blog_date">30 May 2020</a>
+                                        <a href="blog?blogId=<%=top8ByLikes[3]._id%>" class="popular_right_blog_hading">
+                                            <%=top8ByLikes[3].title%>
+                                        </a>
+                                        <a href="#" class="popular_right_blog_date">
+                                            <%=top8ByLikes[3].date%>
+                                        </a>
                                     </div>
                                 </div>
 
                                 <div class="home_popular_right_blog r-flex ali-c jut-sb">
                                     <div class="popular_right_blog_img r-flex">
-                                        <a href="#" class="r-flex">
-                                            <img src="https://images.unsplash.com/photo-1660578150623-2e3790e214a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                                                alt="">
+                                        <a href="<%=top8ByLikes[4].title%>" class="r-flex">
+                                            <img src="<%=top8ByLikes[4].titleImage%>" alt="">
                                         </a>
                                     </div>
                                     <div class="popular_right_blog_cont_box c-flex ">
-                                        <a href="#" class="popular_right_blog_hading">We are guests of ABC Design Studio
-                                            - Vlog</a>
-                                        <a href="#" class="popular_right_blog_date">30 May 2020</a>
+                                        <a href="blog?blogId=<%=top8ByLikes[4]._id%>" class="popular_right_blog_hading">
+                                            <%=top8ByLikes[4].title%>
+                                        </a>
+                                        <a href="#" class="popular_right_blog_date">
+                                            <%=top8ByLikes[4].date%>
+                                        </a>
                                     </div>
                                 </div>
-
                                 <div class="home_popular_right_blog r-flex ali-c jut-sb">
                                     <div class="popular_right_blog_img r-flex">
-                                        <a href="#" class="r-flex">
-                                            <img src="https://images.unsplash.com/photo-1660578150623-2e3790e214a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                                                alt="">
+                                        <a href="<%=top8ByLikes[5].title%>" class="r-flex">
+                                            <img src="<%=top8ByLikes[5].titleImage%>" alt="">
                                         </a>
                                     </div>
                                     <div class="popular_right_blog_cont_box c-flex ">
-                                        <a href="#" class="popular_right_blog_hading">We are guests of ABC Design Studio
-                                            - Vlog</a>
-                                        <a href="#" class="popular_right_blog_date">30 May 2020</a>
+                                        <a href="blog?blogId=<%=top8ByLikes[5]._id%>" class="popular_right_blog_hading">
+                                            <%=top8ByLikes[5].title%>
+                                        </a>
+                                        <a href="#" class="popular_right_blog_date">
+                                            <%=top8ByLikes[5].date%>
+                                        </a>
                                     </div>
                                 </div>
-
                                 <div class="home_popular_right_blog r-flex ali-c jut-sb">
                                     <div class="popular_right_blog_img r-flex">
-                                        <a href="#" class="r-flex">
-                                            <img src="https://images.unsplash.com/photo-1660578150623-2e3790e214a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                                                alt="">
+                                        <a href="<%=top8ByLikes[6].title%>" class="r-flex">
+                                            <img src="<%=top8ByLikes[6].titleImage%>" alt="">
                                         </a>
                                     </div>
                                     <div class="popular_right_blog_cont_box c-flex ">
-                                        <a href="#" class="popular_right_blog_hading">We are guests of ABC Design Studio
-                                            - Vlog</a>
-                                        <a href="#" class="popular_right_blog_date">30 May 2020</a>
+                                        <a href="blog?blogId=<%=top8ByLikes[6]._id%>" class="popular_right_blog_hading">
+                                            <%=top8ByLikes[6].title%>
+                                        </a>
+                                        <a href="#" class="popular_right_blog_date">
+                                            <%=top8ByLikes[6].date%>
+                                        </a>
                                     </div>
                                 </div>
-
                                 <div class="home_popular_right_blog r-flex ali-c jut-sb">
                                     <div class="popular_right_blog_img r-flex">
-                                        <a href="#" class="r-flex">
-                                            <img src="https://images.unsplash.com/photo-1660578150623-2e3790e214a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                                                alt="">
+                                        <a href="<%=top8ByLikes[7].title%>" class="r-flex">
+                                            <img src="<%=top8ByLikes[7].titleImage%>" alt="">
                                         </a>
                                     </div>
                                     <div class="popular_right_blog_cont_box c-flex ">
-                                        <a href="#" class="popular_right_blog_hading">We are guests of ABC Design Studio
-                                            - Vlog</a>
-                                        <a href="#" class="popular_right_blog_date">30 May 2020</a>
-                                    </div>
-                                </div>
-
-                                <div class="home_popular_right_blog r-flex ali-c jut-sb">
-                                    <div class="popular_right_blog_img r-flex">
-                                        <a href="#" class="r-flex">
-                                            <img src="https://images.unsplash.com/photo-1660578150623-2e3790e214a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                                                alt="">
+                                        <a href="blog?blogId=<%=top8ByLikes[7]._id%>" class="popular_right_blog_hading">
+                                            <%=top8ByLikes[7].title%>
+                                        </a>
+                                        <a href="#" class="popular_right_blog_date">
+                                            <%=top8ByLikes[7].date%>
                                         </a>
                                     </div>
-                                    <div class="popular_right_blog_cont_box c-flex ">
-                                        <a href="#" class="popular_right_blog_hading">We are guests of ABC Design Studio
-                                            - Vlog</a>
-                                        <a href="#" class="popular_right_blog_date">30 May 2020</a>
-                                    </div>
                                 </div>
-
-                                <div class="home_popular_right_blog r-flex ali-c jut-sb">
-                                    <div class="popular_right_blog_img r-flex">
-                                        <a href="#" class="r-flex">
-                                            <img src="https://images.unsplash.com/photo-1660578150623-2e3790e214a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                    <div class="popular_right_blog_cont_box c-flex ">
-                                        <a href="#" class="popular_right_blog_hading">We are guests of ABC Design Studio
-                                            - Vlog</a>
-                                        <a href="#" class="popular_right_blog_date">30 May 2020</a>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                         <!-- ===== right side close ==== -->
@@ -723,173 +551,40 @@
                     <span class="heading_under_lines"></span>
                     <div class="recent_blog_box r-flex jut-sb flex-w">
 
-                        <div class="recent_blog">
-                            <div class="recent_blog_img r-flex">
-                                <a href="#" class="r-flex">
-                                    <img src="https://images.unsplash.com/photo-1675352162037-792ae4045e3c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80"
-                                        alt="">
-                                </a>
-                            </div>
-                            <div class="recent_blog_cont_box">
-                                <a href="#" class="recent_blog_heading">10 practical ways to choose organic
-                                    vegetables</a>
-                                <p class="recent_blog_content">Aenean interdum arcu blandit, vehicula magna non,
-                                    placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. </p>
-                                <div class="recent_read_date r-flex ali-c jut-sb">
-                                    <a href="#" class="recent_blog_read_more r-flex ali-c">
-                                        <span>Read More</span>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M13 17L18 12L13 7" stroke="#382E53" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M6 17L11 12L6 7" stroke="#382E53" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </a>
-                                    <a href="#" class="recent_blog_date">28 Feb 2020</a>
-                                </div>
-                            </div>
-                        </div>
+                        <% restOfBlogs.forEach(blog=> { %>
 
-                        <div class="recent_blog">
-                            <div class="recent_blog_img r-flex">
-                                <a href="#" class="r-flex">
-                                    <img src="https://images.unsplash.com/photo-1675352162037-792ae4045e3c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80"
-                                        alt="">
-                                </a>
-                            </div>
-                            <div class="recent_blog_cont_box">
-                                <a href="#" class="recent_blog_heading">10 practical ways to choose organic
-                                    vegetables</a>
-                                <p class="recent_blog_content">Aenean interdum arcu blandit, vehicula magna non,
-                                    placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. </p>
-                                <div class="recent_read_date r-flex ali-c jut-sb">
-                                    <a href="#" class="recent_blog_read_more r-flex ali-c">
-                                        <span>Read More</span>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M13 17L18 12L13 7" stroke="#382E53" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M6 17L11 12L6 7" stroke="#382E53" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
+                            <div class="recent_blog">
+                                <div class="recent_blog_img r-flex">
+                                    <a href="blog?blogId=<%=blog._id%>" class="r-flex">
+                                        <img height="250px" src="<%=blog.titleImage%>" alt="">
                                     </a>
-                                    <a href="#" class="recent_blog_date">28 Feb 2020</a>
+                                </div>
+                                <div class="recent_blog_cont_box">
+                                    <a href="blog?blogId=<%=blog._id%>" class="recent_blog_heading">
+                                        <%=blog.title%>
+                                    </a>
+                                    <p class="recent_blog_content">
+                                        <%=blog.title%>
+                                    </p>
+                                    <div class="recent_read_date r-flex ali-c jut-sb">
+                                        <a href="blog?blogId=<%=blog._id%>" class="recent_blog_read_more r-flex ali-c">
+                                            <span>Read More</span>
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13 17L18 12L13 7" stroke="#382E53" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M6 17L11 12L6 7" stroke="#382E53" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                        <a href="#" class="recent_blog_date">
+                                            <%=blog.date%>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="recent_blog">
-                            <div class="recent_blog_img r-flex">
-                                <a href="#" class="r-flex">
-                                    <img src="https://images.unsplash.com/photo-1675352162037-792ae4045e3c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80"
-                                        alt="">
-                                </a>
-                            </div>
-                            <div class="recent_blog_cont_box">
-                                <a href="#" class="recent_blog_heading">10 practical ways to choose organic
-                                    vegetables</a>
-                                <p class="recent_blog_content">Aenean interdum arcu blandit, vehicula magna non,
-                                    placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. </p>
-                                <div class="recent_read_date r-flex ali-c jut-sb">
-                                    <a href="#" class="recent_blog_read_more r-flex ali-c">
-                                        <span>Read More</span>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M13 17L18 12L13 7" stroke="#382E53" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M6 17L11 12L6 7" stroke="#382E53" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </a>
-                                    <a href="#" class="recent_blog_date">28 Feb 2020</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="recent_blog">
-                            <div class="recent_blog_img r-flex">
-                                <a href="#" class="r-flex">
-                                    <img src="https://images.unsplash.com/photo-1675352162037-792ae4045e3c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80"
-                                        alt="">
-                                </a>
-                            </div>
-                            <div class="recent_blog_cont_box">
-                                <a href="#" class="recent_blog_heading">10 practical ways to choose organic
-                                    vegetables</a>
-                                <p class="recent_blog_content">Aenean interdum arcu blandit, vehicula magna non,
-                                    placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. </p>
-                                <div class="recent_read_date r-flex ali-c jut-sb">
-                                    <a href="#" class="recent_blog_read_more r-flex ali-c">
-                                        <span>Read More</span>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M13 17L18 12L13 7" stroke="#382E53" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M6 17L11 12L6 7" stroke="#382E53" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </a>
-                                    <a href="#" class="recent_blog_date">28 Feb 2020</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="recent_blog">
-                            <div class="recent_blog_img r-flex">
-                                <a href="#" class="r-flex">
-                                    <img src="https://images.unsplash.com/photo-1675352162037-792ae4045e3c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80"
-                                        alt="">
-                                </a>
-                            </div>
-                            <div class="recent_blog_cont_box">
-                                <a href="#" class="recent_blog_heading">10 practical ways to choose organic
-                                    vegetables</a>
-                                <p class="recent_blog_content">Aenean interdum arcu blandit, vehicula magna non,
-                                    placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. </p>
-                                <div class="recent_read_date r-flex ali-c jut-sb">
-                                    <a href="#" class="recent_blog_read_more r-flex ali-c">
-                                        <span>Read More</span>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M13 17L18 12L13 7" stroke="#382E53" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M6 17L11 12L6 7" stroke="#382E53" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </a>
-                                    <a href="#" class="recent_blog_date">28 Feb 2020</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="recent_blog">
-                            <div class="recent_blog_img r-flex">
-                                <a href="#" class="r-flex">
-                                    <img src="https://images.unsplash.com/photo-1675352162037-792ae4045e3c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80"
-                                        alt="">
-                                </a>
-                            </div>
-                            <div class="recent_blog_cont_box">
-                                <a href="#" class="recent_blog_heading">10 practical ways to choose organic
-                                    vegetables</a>
-                                <p class="recent_blog_content">Aenean interdum arcu blandit, vehicula magna non,
-                                    placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. </p>
-                                <div class="recent_read_date r-flex ali-c jut-sb">
-                                    <a href="#" class="recent_blog_read_more r-flex ali-c">
-                                        <span>Read More</span>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M13 17L18 12L13 7" stroke="#382E53" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M6 17L11 12L6 7" stroke="#382E53" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </a>
-                                    <a href="#" class="recent_blog_date">28 Feb 2020</a>
-                                </div>
-                            </div>
-                        </div>
+                            <% }); %>
 
                     </div>
                 </div>

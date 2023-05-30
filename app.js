@@ -53,26 +53,6 @@ app.use("/", recomandationRoute);
 app.use("/", competitionRoute);
 app.use("/", rankingRoute);
 
-app.get("/write", (req, res) => {
-  if (req.isAuthenticated()) {
-    res.render("write", { user: req.user });
-  } else {
-    res.redirect("/login");
-  }
-});
-
-app.post("/write", (req, res) => {
-  console.log(req.body);
-});
-
-app.get("/signup", function (req, res) {
-  res.render("register");
-});
-
-app.get("/login", (req, res) => {
-  res.render("login");
-});
-
 app.listen(process.env.PORT, function () {
   console.log(`Server started on http://localhost:${process.env.PORT}`);
 });

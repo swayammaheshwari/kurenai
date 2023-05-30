@@ -3,6 +3,10 @@ const router = express.Router();
 const { User, Referral, transporter, UserInfo } = require("../models.js");
 const template = require("./template");
 
+router.get("/signup", function (req, res) {
+  res.render("register");
+});
+
 router.post("/signup", async (req, res) => {
   try {
     const referralId = Math.floor(Math.random() * 10000000);

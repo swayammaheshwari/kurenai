@@ -291,47 +291,7 @@
             element.classList.toggle("mystyle");
             document.body.classList.toggle("noscroll");
         }
-        async function handleSignup() {
 
-            // e.preventDefault()
-
-            // console.log(.target)
-
-            let data = {}
-
-            data["username"] = document.getElementById("username").value;
-            data["email"] = document.getElementById("email").value;
-            data["password"] = document.getElementById("password").value;
-
-            console.log("in singup handle")
-
-            fetch(`https://back.autumnkurenai.com/signup`, {
-                method: "POST",
-                headers: {
-                    "content-type": "application/json",
-                },
-                body: JSON.stringify(data),
-            })
-                .then((res) => res.json())
-                .then((data) => {
-                    setSuccess(true);
-                    console.log("data in signup", data);
-                    console.log(data.user._id);
-                    if (data.user._id !== null) {
-                        toast.success(data.message)
-                    }
-                    alert("Signup Successful")
-                    navigate("/signin")
-                    window.location.reload(false);
-                })
-                .catch((err) => {
-                    // console.log(err.message)
-                    if (err) {
-                        console.log(err)
-                        toast.error("A user with the given username is already registered")
-                    }
-                });
-        }
     </script>
 </body>
 
