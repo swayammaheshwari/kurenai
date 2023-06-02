@@ -15,7 +15,7 @@ const router = express.Router();
 
 router.get("/write", (req, res) => {
   if (req.isAuthenticated()) {
-    res.render("write", { user: req.user });
+    res.render("writer", { user: req.user });
   } else {
     res.redirect("/login");
   }
