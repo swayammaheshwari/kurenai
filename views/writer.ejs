@@ -649,7 +649,9 @@
                         <div class="page-wrapper">
                             <div class="blog-title-area">
 
-                                <h3 id="title" contenteditable="true">Title</h3>
+                                <h3 id="title" contenteditable="true">
+                                    <%=user.username%>
+                                </h3>
 
                                 <div class="post-sharing">
                                     <ul class="list-inline">
@@ -1035,7 +1037,7 @@
             body.append("blogId", "6437cf61159891149608d102")
             body.append("userId", "641be792bacccc03c37fc0e4")
             body.append("image", e.files[0])
-            fetch("https://back.autumnkurenai.com/image",
+            fetch("http://localhost:3000/image",
                 {
                     method: "POST",
                     body: body
@@ -1111,7 +1113,7 @@
         }
 
         function saveData(blog) {
-            fetch(`https://back.autumnkurenai.com/updateBlog`, {
+            fetch(`http://localhost:3000/updateBlog`, {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
@@ -1134,7 +1136,7 @@
         function editorJS(blogBody) {
             const editor = new EditorJS({
                 holder: 'editorjs',
-                //data: blogBody,
+                data: blogBody,
                 tools: {
                     header: Header,
                     delimiter: Delimiter,
@@ -1230,7 +1232,7 @@
                 body.append("userId", "641be792bacccc03c37fc0e4")
                 body.append("image", e.files[0])
 
-                fetch(`https://back.autumnkurenai.com/titleImage`, {
+                fetch(`http://localhost:3000/titleImage`, {
                     method: "POST",
                     body: body
                 }).then((res) => res.json())
@@ -1257,30 +1259,33 @@
             }
         });
 
+        (function call() {
+            fetch("http://localhost:3000/blog?blogId=6437cf61159891149608d102", options)
+                .then(function (response) {
+                    // console.log(response.json())
+                    return response.json();
+                })
+                .then(function (jsonData) {
+                    console.log(jsonData.blog[0])
+                    jsonData = jsonData.blog;
 
+                    titleImage = document.getElementById("titleImage")
+                    titleImage.src = jsonData[0]["titleImage"]
+                    title = document.getElementById("title")
+                    title.innerHTML = jsonData[0]["title"]
+                    document.title = jsonData[0]["title"]
+                    setTags(jsonData[0].tags)
 
-        fetch("https://back.autumnkurenai.com/blog?blogId=6437cf61159891149608d102", options)
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (jsonData) {
-                console.log(jsonData[0])
+                    console.log("body=  ", jsonData[0].body);
+                    if (jsonData[0].body !== null) {
+                        editor = editorJS(jsonData[0].body);
+                    } else {
+                        editor = editorJS([]);
+                    }
+                    changeMeta(jsonData[0]);
+                });
+        })();
 
-                titleImage = document.getElementById("titleImage")
-                titleImage.src = jsonData[0]["titleImage"]
-                title = document.getElementById("title")
-                title.innerHTML = jsonData[0]["title"]
-                document.title = jsonData[0]["title"]
-                setTags(jsonData[0].tags)
-
-                console.log("body=  ", jsonData[0].body);
-                if (jsonData[0].body !== null) {
-                    editor = editorJS(jsonData[0].body);
-                } else {
-                    editor = editorJS([]);
-                }
-                changeMeta(jsonData[0]);
-            });
 
         var authorName = ""
         function userData(url) {
@@ -1308,7 +1313,7 @@
             document.querySelector('meta[property="og:description"]').setAttribute("content", meta.innerHTML);
         }
 
-        //userData("https://back.autumnkurenai.com/userinfo/63f621a7b474349f41946e78");
+        //userData("http://localhost:3000/userinfo/63f621a7b474349f41946e78");
         editorJS([]);
 
     </script>

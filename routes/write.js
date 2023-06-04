@@ -21,6 +21,10 @@ router.get("/write", (req, res) => {
   }
 });
 
+router.get("/read", (req, res) => {
+  res.render("read");
+});
+
 router.post("/write", (req, res) => {
   console.log(req.body);
 });
